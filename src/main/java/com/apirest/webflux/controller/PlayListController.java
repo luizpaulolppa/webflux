@@ -14,8 +14,8 @@ import com.apirest.webflux.service.PlayListService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@RestController
-@RequestMapping("/playLists")
+//@RestController
+//@RequestMapping("/playLists")
 public class PlayListController {
 	
 	@Autowired
