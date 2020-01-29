@@ -14,7 +14,7 @@ import com.apirest.webflux.service.PlayListService;
 
 import reactor.core.publisher.Mono;
 
-@Component
+//@Component
 public class PlayListHandler {
 
 	@Autowired

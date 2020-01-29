@@ -12,10 +12,10 @@ import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
 
 
-@Configuration
+//@Configuration
 public class PlayListRouter {
 	
-	@Bean
+//	@Bean
 	public RouterFunction<ServerResponse> route(PlayListHandler handler) {
 		return RouterFunctions
 				.route(GET("/playLists").and(accept(MediaType.APPLICATION_JSON)), handler::findAll)
