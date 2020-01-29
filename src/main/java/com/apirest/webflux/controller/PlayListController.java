@@ -23,33 +23,33 @@ import reactor.util.function.Tuple2;
 @RestController
 @RequestMapping("/playLists")
 public class PlayListController {
-	
+
 	@Autowired
 	private PlayListService playListService;
-	
+
 	@GetMapping
 	public Flux<PlayList> getPlaylists() {
 		return playListService.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Mono<PlayList> getplayListById(@PathVariable(name = "id", required = true) String id) {
 		return playListService.findById(id);
 	}
-	
+
 	@PostMapping
 	public Mono<PlayList> savePlayList(@RequestBody PlayList playList) {
 		return playListService.save(playList);
 	}
-	
+
 	@GetMapping(value="/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<Tuple2<Long, PlayList>> getPlaylistByWebflux(){
 		System.out.println("---Start get Playlists by WEBFLUX--- " + LocalDateTime.now());
 		Flux<Long> interval = Flux.interval(Duration.ofSeconds(2));
-        Flux<PlayList> playlistFlux = playListService.findAll();
-        return Flux.zip(interval, playlistFlux);
+		Flux<PlayList> playlistFlux = playListService.findAll();
+		return Flux.zip(interval, playlistFlux);
 	}
-	
+
 	@GetMapping(value="/flux")
 	public Flux<PlayList> getPlaylistByMvc() throws InterruptedException {
 		System.out.println("--- START GET PLAYLIST --- " + LocalDateTime.now());

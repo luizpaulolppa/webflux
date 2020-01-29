@@ -32,7 +32,7 @@ public class PlayListHandler {
 				.contentType(MediaType.APPLICATION_JSON)
 				.body(playListService.findById(id), PlayList.class);
 	}
-	
+
 	public Mono<ServerResponse> save(ServerRequest request) {
 		Mono<PlayList> playList = request.bodyToMono(PlayList.class);
 		return ok()

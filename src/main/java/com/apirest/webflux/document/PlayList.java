@@ -14,7 +14,7 @@ public class PlayList {
 		this.id = id;
 		this.nome = nome;
 	}
-	
+
 	public PlayList() {
 
 	}
@@ -34,7 +34,7 @@ public class PlayList {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.id + " - " + this.nome;

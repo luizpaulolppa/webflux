@@ -18,8 +18,8 @@ public class DummyData implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		playListRepository.deleteAll().thenMany(
-			Flux.just("API REST Spring Boot", "Deploy de uma aplicação java no IBM Cloud", "Java 8", "Github", "Spring Security", "Web Service RESTFULL", "Bean no Spring Framework")
-			.map(nome -> new PlayList(null, nome)).flatMap(playListRepository::save))
-			.subscribe(System.out::println);
+				Flux.just("API REST Spring Boot", "Deploy de uma aplicação java no IBM Cloud", "Java 8", "Github", "Spring Security", "Web Service RESTFULL", "Bean no Spring Framework")
+				.map(nome -> new PlayList(null, nome)).flatMap(playListRepository::save))
+		.subscribe(System.out::println);
 	}
 }
